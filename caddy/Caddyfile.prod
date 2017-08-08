@@ -1,19 +1,5 @@
-
-# phpmyadmin
-localhost:81 {
-    proxy / blog_phpmyadmin:80 {
-        transparent
-        websocket
-    }
-
-    gzip
-
-    errors stdout
-    log stdout
-}
-
 # PHP-сервер
-localhost:80 {
+village-geek.ru {
     root /var/www/blog
     index index.php index.html index.html
 
@@ -35,5 +21,18 @@ localhost:80 {
 
     errors stdout 
 
+    log stdout
+}
+
+# phpmyadmin
+phpmyadmin.village-geek.ru {
+    proxy / blog_phpmyadmin:80 {
+        transparent
+        websocket
+    }
+
+    gzip
+
+    errors stdout
     log stdout
 }

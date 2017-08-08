@@ -13,4 +13,4 @@
 
 6. Для развертывания Эгеи на боевом сервере измените название домена в файле `Caddyfile.prod` и в `caddy/Dockerfile` в 30 строке вставьте `COPY Caddyfile.prod /etc/Caddyfile`. В файле `docker-compose.yaml` в секции конфигурации caddy оставьте только 80 и 443 порты.
 
-7. В  `/user/config.php` нужно прописать: `$_config['url_composition'] = 'synthetic';` и после этого сбросить кеш `/?go=@sync/`
+7. В  `blog/user/config.php` нужно прописать: `$_config['url_composition'] = 'synthetic';` и после этого сбросить кеш `/?go=@sync/`

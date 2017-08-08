@@ -1,17 +1,4 @@
 
-# phpmyadmin
-localhost:81 {
-    proxy / blog_phpmyadmin:80 {
-        transparent
-        websocket
-    }
-
-    gzip
-
-    errors stdout
-    log stdout
-}
-
 # PHP-сервер
 localhost:80 {
     root /var/www/blog
@@ -35,5 +22,19 @@ localhost:80 {
 
     errors stdout 
 
+    log stdout
+}
+
+
+# phpmyadmin
+localhost:81 {
+    proxy / blog_phpmyadmin:80 {
+        transparent
+        websocket
+    }
+
+    gzip
+
+    errors stdout
     log stdout
 }
