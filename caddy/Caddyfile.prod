@@ -1,0 +1,39 @@
+
+# phpmyadmin
+localhost:81 {
+    proxy / blog_phpmyadmin:80 {
+        transparent
+        websocket
+    }
+
+    gzip
+
+    errors stdout
+    log stdout
+}
+
+# PHP-сервер
+localhost:80 {
+    root /var/www/blog
+    index index.php index.html index.html
+
+    rewrite {
+        to {path} {path}/ /index.php?go={uri}
+    }
+
+    rewrite {
+        regexp /\.ht
+        to status 403
+    }
+
+    rewrite {
+        regexp \.psa$
+        to status 403
+    }
+
+    fastcgi / blog_php:9000 php
+
+    errors stdout 
+
+    log stdout
+}
