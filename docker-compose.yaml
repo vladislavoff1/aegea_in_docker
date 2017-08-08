@@ -1,5 +1,6 @@
 version: '3'
 
+# maintainer "Pavel Pavlenko <region23@gmail.com>"
 services:
 
   mysql:
