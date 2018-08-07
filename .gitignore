@@ -3,3 +3,4 @@
 mysql_data/
 blog/
 caddy/.caddy/
+.env
